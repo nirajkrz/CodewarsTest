@@ -13,3 +13,11 @@ validatePIN("a234") === false
 
 
 *******************************************************************************************************************************/
+
+function validatePIN (pin) {
+//	Why not use the regular expression '^\\d{4}(\\{6})?$' and get rid of the length test?
+  var r = new RegExp('^(\\d{4}|\\d{6})$');
+
+  return r.test(pin);
+
+}

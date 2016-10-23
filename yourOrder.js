@@ -12,3 +12,31 @@ For an input: "is2 Thi1s T4est 3a" the function should return "Thi1s is2 3a T4es
 
 
 ********************************************************************************************************************************/
+function order(words){
+  if (words === "") {
+    return "";
+  }else{
+    let wordsArr = words.split(" ");
+    let sortedWords = [];
+    for (let i = 0; i < wordsArr.length; i++) {
+      let word = wordsArr[i].split("");
+      for (let e = 0; e < word.length; e++) {
+        if (Number.isInteger(parseInt(word[e]))) {
+          sortedWords[word[e]] = wordsArr[i]
+        }
+      }
+    }
+    return sortedWords.join(" ").substring(1)
+  }
+};
+
+order("is2 Thi1s T4est 3a");
+
+// other solutions
+
+function order(words){
+
+  return words.split(' ').sort(function(a, b){
+      return a.match(/\d/) - b.match(/\d/);
+   }).join(' ');
+} 
